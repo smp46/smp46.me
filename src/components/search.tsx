@@ -121,6 +121,11 @@ export default function Search({ onResultClick }: SearchProps) {
             // @ts-expect-error pagefind exists only on build
             /* webpackIgnore: true */ './pagefind/pagefind.js'
           );
+          await window.pagefind.options({
+            ranking: {
+              pageLength: 0, // Disable page length ranking
+            },
+          });
         } catch (e) {
           console.log(e);
           window.pagefind = {
