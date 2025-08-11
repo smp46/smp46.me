@@ -70,7 +70,7 @@ To get a local copy up and running follow these simple steps:
     npm install
     ```
 
-For developing `npm run dev`, this even works for adding MDX files. Navigating away then back to /projects, will refresh and get new files.
+For developing `npm run dev`, this even works for adding MDX files. Navigating away then back to /blog, will refresh and get new files.
 
 For building/generating a static site `npm run build`, find the website files in /out.
 
@@ -83,15 +83,25 @@ The end result is a relatively easy way to maintain and add articles/project wri
 2.  Add the required fields to the top of the page, to extract a title and allow for categorising, meta tags etc. For example:
     ```
     ---
-    title: "Portfolio Website"
-    subtitle: "Building My Developer Portfolio with Next.js, MDX, and GitHub Actions"
-    type: "personal"
-    description: "A fully statically-generated personal portfolio built with Next.js, React, and TypeScript. It showcases projects, articles written in MDX, and a bit about me."
-    keywords: "personal website, portfolio, Next.js, React, TypeScript, static site generation, MDX, GitHub Actions, web development, developer portfolio"
-    github: "[https://github.com/smp46/smp46.me](https://github.com/smp46/smp46.me)"
+    title: Portfolio Website
+    subtitle:
+      'Building My Developer Portfolio with Next.js, MDX, and GitHub Actions'
+    type: personal
+    description: >-
+      A fully statically-generated personal portfolio built with Next.js, React, and
+      TypeScript. It showcases projects, articles written in MDX, and a bit about
+      me.
+    keywords: >-
+      personal website, portfolio, Next.js, React, TypeScript, static site
+      generation, MDX, GitHub Actions, web development, developer portfolio
+    github: 'https://github.com/smp46/smp46.me'
+    date: '2025-05-13'
+    created: '2025-04-08'
+    updated: '2025-05-13'
     ---
+
     ```
-3.  `git add . && git commit` And ta-dah, the Github workflow handles the compiling and then it goes live at [smp46.me/projects](https://smp46.me/projects).
+3.  `git add . && git commit` And ta-dah, the Github workflow handles the compiling and then it goes live at [smp46.me/blog](https://smp46.me/blog).
 
 
 
