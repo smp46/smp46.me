@@ -117,15 +117,19 @@ export default function Search({ onResultClick }: SearchProps) {
     const loadPagefind = async () => {
       if (typeof window.pagefind === 'undefined') {
         try {
-          window.pagefind = await import(
+          const pagefind = await import(
             // @ts-expect-error pagefind exists only on build
             /* webpackIgnore: true */ './pagefind/pagefind.js'
           );
-          await window.pagefind.options({
-            ranking: {
-              pageLength: 0, // Disable page length ranking
-            },
-          });
+
+          if (typeof pagefind !== 'undefined') {
+            await pagefind.options({
+              ranking: {
+                pageLength: 0, // Disable page length ranking
+              },
+            });
+            window.pagefind = pagefind;
+          }
         } catch (e) {
           console.log(e);
           window.pagefind = {
