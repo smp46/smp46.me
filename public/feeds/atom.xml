@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://smp46.me</id>
     <title>smp46</title>
-    <updated>2025-08-11T05:20:34.171Z</updated>
+    <updated>2025-08-21T04:39:36.414Z</updated>
     <generator>Next.js using Feed for Node.js</generator>
     <author>
         <name>smp46</name>
@@ -15,13 +15,184 @@
     <icon>https://cdn.statically.io/gh/smp46/smp46.github.io/nextjs/public/favicon.ico</icon>
     <rights>All rights reserved 2025, smp46</rights>
     <entry>
+        <title type="html"><![CDATA[Legionnaire]]></title>
+        <id>https://smp46.me/blog/Legionnaire</id>
+        <link href="https://smp46.me/blog/Legionnaire"/>
+        <updated>2025-08-21T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Legionnaire is an AI-powered SIEM (Security Information and Event Management) platform designed for comprehensive, automated threat detection and response. It operates as a modular, GUI-less client running in the background, consisting of a client, a control-server and web dashboard. Our team built it in <48 Hours for the UQCS Hackathon 2025.]]></summary>
+        <content type="html"><![CDATA[<p><img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/legionnaire/title.webp" alt="Title"></p>
+<h1>Legionnaire: Caffeine, Code, and Cyber Security, a 48 Hour AI-Powered SIEM Hackathon Project</h1>
+<h2>Acryonyms, Acronyms, Acryonyms</h2>
+<p>A few months ago I found myself sitting at a talk at CrikeyConX in the Brisbane
+Convention Centre. The talk was titled "SIEM-less security; Panacea or placebo",
+and it took approximately 10 minutes before my friend Lachlan and I turned to
+each other and admitted we had no idea what a SIEM or an EDR is. After a quick
+search, we were suddenly (acronym) experts and the talk began to make a little
+more sense.</p>
+<p>Therefore in case you don't know:</p>
+<ul>
+<li>SIEM (Security Information and Event Management)</li>
+<li>EDR (Endpoint Detection and Response)</li>
+</ul>
+<p><img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/legionnaire/crikeycon.webp" alt="Crikeycon"></p>
+<p>The key takeaways from the talk were:<br>
+a) SIEMs are expensive (i.e. they're worth a lot of money)<br>
+b) SIEMs and EDRs are tools to be used by experienced Security Professionals,
+not one-shot solutions that you can throw money at to solve cyber security.<br>
+c) Modularity is important in these kinds of products.</p>
+<p>That got our cogs turning. Then the UQ Computing Society's yearly weekend
+Hackathon comes around and we have an idea, why not build our own SIEM in less
+than 48 hours. Last year we made a
+<a href="https://smp46.me/blog/UQInc/">poorly written idle game in Rust</a>, so something a
+little more serious sounded appropriate. We also learnt, based on last year's
+winners, that some kind of AI tech (or at least Machine Learning) was a
+requirement to get any of the judges to even consider our project. So we have
+two requirements for our project, some kind of SIEM/EDR product and it has to
+utilise AI. Easy right?</p>
+<h2>The Architecture Plan</h2>
+<p>As this was the second time our team had participated in the UQCS Hackathon, we
+knew the biggest hurdle was ensuring everyone had work to do. We had to prevent
+(as much as possible) devs waiting on other devs to get work done. As a result,
+a modular approach was decided upon.</p>
+<p>Given the goal is to make an enterprise-level product, the Client will be a
+background-only service that provides zero feedback or notifications to the
+user. It is comprised of four modules:</p>
+<ul>
+<li>Network Module, for monitoring and collecting network flow features to be sent
+to the control-server for analysis.</li>
+<li>System Log Analysis Module, for monitoring key system logs and flagging any
+suspicious or otherwise unwanted entries.</li>
+<li>Program Analysis Module, for hashing all running programs and checking if any
+match known malware (via the MalwareBazaar API).</li>
+<li>Action Module, so once a Security Specialist has read logs they can act
+against any potential threats. Actions include: Adding and removing firewall
+rules, killing processes and removing files.</li>
+</ul>
+<p>The Control-Server is then responsible for:</p>
+<ul>
+<li>Running the Network Flow analysis algorithm and flagging any suspicious
+activity.</li>
+<li>Collating logs and storing the client identifiers for every entry.</li>
+<li>Proxy-ing any actions from the Web Dashboard to the appropriate Client's
+Action Module.</li>
+</ul>
+<p>The Web Dashboard connects to the Control-Server via a REST-ful API to:</p>
+<ul>
+<li>Provide a per module logs overview</li>
+<li>Provide statistics and graphing</li>
+<li>Allow viewing logs associated with each Client</li>
+<li>Take context specific actions for each Client (e.g. blocking traffic, killing
+and deleting programs)</li>
+</ul>
+<p><img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/legionnaire/plan.webp" alt="Plan"></p>
+<h2>The Tech Stack</h2>
+<p>Last Hackathon my team made the mistake of trying to both learn and write in a
+language we had not used before. While we had hoped to use Golang for this
+project's backend, for speed and reliability, only a couple of members had
+experience writing it. So, Python was selected as the language of choice.</p>
+<p>The most important of the libraries we used are:</p>
+<ul>
+<li><a href="https://github.com/hieulw/cicflowmeter">cicflowmeter</a>, which allowed live
+monitoring and extraction of over 79 network flow features.</li>
+<li><a href="https://github.com/dmlc/xgboost">xgboost</a>, for training and running the
+binary classification model that allowed us to accurately analyse and flag
+traffic.</li>
+<li><a href="https://github.com/pallets/flask">flask</a>, the gold-standard for implementing
+web applications in Python. In our case it was used for REST-ful API
+communications between Client, Control-Server and Web Dashboard.</li>
+</ul>
+<p>The Web-Dashboard was written using React + Vite + TailwindCSS, to provide an
+easy to develop and run front-end for the users. Firebase is used for login
+authentication and was intended to be used for backing up logs, however that has
+not yet been implemented.</p>
+<h2>Turning Nice Ideas into Code</h2>
+<h3>What Went Well</h3>
+<p>Honestly, there were no major hurdles or roadblocks this time around.
+Development went relatively smoothly and we managed to produce an end-product
+that fit almost exactly the scope that we set out to do. The modular approach
+was a great idea, it allowed each developer to work relatively independently up
+until it came time to combine and connect the modules.</p>
+<h3>Issues</h3>
+<p>The only major issue encountered was that we hoped to use an existing Dataset
+for the AI Analysis:
+<a href="https://www.unb.ca/cic/datasets/ids-2017.html">CIC-IDS2017</a>. The dataset
+provides over 70gb of data over a week of data collection, with data labelled as
+benign or categorised as a specific type of attack. While a model was trained on
+this data, we found it very ineffective for the actual data we were producing.
+i.e. for whatever reason the testing we did produced very different features and
+thus inaccurate results for the model.</p>
+<p>As a result we had to do our own data collection. I personally collected the
+data using the same cicflowmeter python module, a Kali Linux Virtual Machine and
+various attack tools.</p>
+<h3>What About AI?</h3>
+<p>Don't say it too loudly, our Machine Learning dev is not a fan of using
+buzzwords to describe what 5 years ago would just be called an Algorithm. But
+the year is 2025 and we wanted to tick that box. If you do want to understand a
+little more about how the classification model works, I will quote our ML Dev
+here:</p>
+<blockquote>
+<p>The model being used is the XGBClassification algorithm, which is an extremely
+optimised gradient boosting ensemble algorithm. This model was trained and
+tested on real collected data and verified using the CIC-IDS-2017 dataset.
+Throughout the hackathon, the model was trained a variety of times, attempting
+multiclass classification and binary classification of attacks. The final
+model used is a logistic binary classifier trained with L1 and L2
+regularisation, also implementing methods to deal with class imbalances such
+as weight scaling. This classifier predicts the labels of data containing 79
+columns of network traffic to either Benign (0) or Attack (1).</p>
+</blockquote>
+<p>What I can contribute? is that it actually worked surprisingly well. Resource
+usage on the Control-Server was negligent, and that's even when the model is
+running nearly constantly analysing multiple clients network flows. The main
+reasons I found the model impressive is the ability to identify malicious
+activities of network connections, without intercepting, packet inspection,? or
+decryption. Monitoring is completely passive and transparent, yet still
+effective.</p>
+<h2>The Result: Visuals</h2>
+<p>Here's a short demo of the Web-Dashboard in action:
+<img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/legionnaire/demo_video.gif" alt="Demo Video"></p>
+<h3>Per Page Module Overview</h3>
+<p>Graphing and General Statistics:
+<img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/legionnaire/dash_stats.webp" alt="Dashboard Stats"></p>
+<p>Program Analysis Logs:
+<img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/legionnaire/dash_prog.webp" alt="Program Analysis"></p>
+<p>Network Analysis Logs:
+<img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/legionnaire/dash_net.webp" alt="Network Analysis"></p>
+<p>System Logs Analysis Logs:
+<img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/legionnaire/dash_logs.webp" alt="System Logs"></p>
+<p>Endpoint (Client) Management:
+<img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/legionnaire/dash_endpoints.webp" alt="Endpoint Management"></p>
+<p>Client Specific Logs and Actions:</p>
+<p><img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/legionnaire/dash_client.webp" alt="Client Logs"></p>
+<h2>What I Learned</h2>
+<p>The most important thing I learned is that 5-6 hours of sleep and a lot of
+caffeine, is pretty much the equivalent of a full-nights sleep (not true).</p>
+<p>What I did learn is that as easy as it is to hate on Python, it is remarkably
+flexible, <em>very easy</em> to work with and the module support is incredible. So who
+knows, maybe my new profile picture will be me working with a Python instead of
+fighting one.</p>
+<p>Additionally, some valuable teamwork skills were picked up. This year was a much
+more productive and effective use of our time. It turns out task management is
+super important when trying to work with multiple developers, especially when
+parallelisation of work is a must.</p>
+<h2>A Future Startup?</h2>
+<p>Haha no.</p>
+<p>In reality this is very much still a hackathon-level project in terms of polish
+and code quality. I intend to work with the team and fix some of the minor
+issues and act on some feedback we achieved. But most importantly regardless of
+the future, I am proud of the team and myself and think this marks a great final
+project for our UQCS Hackathon Career before we all graduate.</p>
+]]></content>
+        <published>2025-08-21T00:00:00.000Z</published>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Pandora's Box]]></title>
         <id>https://smp46.me/blog/PandorasBox</id>
         <link href="https://smp46.me/blog/PandorasBox"/>
         <updated>2025-07-15T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Pandora's Box is an AI powered web honey-pot that utilises a fine-tuned version of distilgpt2. Through the use of an LLM, relevant, specific and personalised responses can be made to every incoming request. The project was built with Python, Golang and Typescript.
 🏆 5th Place Winner at LaunchHacks IV Hackathon 🏆]]></summary>
-        <content type="html"><![CDATA[<p><img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/pandorasbox/title.webp" alt="Title"></p>
+        <content type="html"><![CDATA[<p><img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/pandorasbox/title1.webp" alt="Title"></p>
 <h1>Pandora's Box: Developing an LLM-Powered Web Honeypot in 96 Hours</h1>
 <h2>The Problem</h2>
 <p>The idea of a Honeypot is to detect and collect information on attackers by
@@ -168,13 +339,13 @@ track of usage by number of hours.</p>
 straightforward. I started with this
 <a href="https://github.com/libp2p/js-libp2p-example-webrtc-private-to-private/">webrtc browser-to-browser example</a>
 and went from there. Unfortunately, while libp2p has some cool built-in
-protocols like gossip-sub for chat apps. It <em>doesn't</em> offer a file transfer protocol, so that was my job to
-implement. But in theory if I can get a stream, I should be able to just push
-some data through it, save it on the other end and boom, file-sharing done.
-Well, in a perfect world maybe, but I found WebSockets and WebRTC isn't exactly
-tailored to shoving large amounts of data through a stream as fast as possible.
-Connection stability was a gigantic headache, connections <em>will</em> drop and
-handling that is a pain.</p>
+protocols like gossip-sub for chat apps. It <em>doesn't</em> offer a file transfer
+protocol, so that was my job to implement. But in theory if I can get a stream,
+I should be able to just push some data through it, save it on the other end and
+boom, file-sharing done. Well, in a perfect world maybe, but I found WebSockets
+and WebRTC isn't exactly tailored to shoving large amounts of data through a
+stream as fast as possible. Connection stability was a gigantic headache,
+connections <em>will</em> drop and handling that is a pain.</p>
 <h3>Complete Transfers over Incomplete Connections</h3>
 <p>The general idea seemed easy, if I just track at an application level how far
 through a file transfer the app is then if a connection drops, it can reconnect
