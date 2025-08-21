@@ -4,7 +4,7 @@
         <title>smp46</title>
         <link>https://smp46.me</link>
         <description>Projects, attempts and other things</description>
-        <lastBuildDate>Mon, 11 Aug 2025 05:45:42 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 21 Aug 2025 03:56:08 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Next.js using Feed for Node.js</generator>
         <language>en</language>
@@ -16,7 +16,7 @@
             <pubDate>Tue, 15 Jul 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Pandora's Box is an AI powered web honey-pot that utilises a fine-tuned version of distilgpt2. Through the use of an LLM, relevant, specific and personalised responses can be made to every incoming request. The project was built with Python, Golang and Typescript.
 🏆 5th Place Winner at LaunchHacks IV Hackathon 🏆]]></description>
-            <content:encoded><![CDATA[<p><img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/pandorasbox/title.webp" alt="Title"></p>
+            <content:encoded><![CDATA[<p><img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/pandorasbox/title1.webp" alt="Title"></p>
 <h1>Pandora's Box: Developing an LLM-Powered Web Honeypot in 96 Hours</h1>
 <h2>The Problem</h2>
 <p>The idea of a Honeypot is to detect and collect information on attackers by
