@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://smp46.me</id>
     <title>smp46</title>
-    <updated>2025-08-21T04:52:43.641Z</updated>
+    <updated>2025-08-21T04:57:00.033Z</updated>
     <generator>Next.js using Feed for Node.js</generator>
     <author>
         <name>smp46</name>
@@ -20,7 +20,7 @@
         <link href="https://smp46.me/blog/Legionnaire"/>
         <updated>2025-08-21T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Legionnaire is an AI-powered SIEM (Security Information and Event Management) platform designed for comprehensive, automated threat detection and response. It operates as a modular, GUI-less client running in the background, consisting of a client, a control-server and web dashboard. Our team built it in <48 Hours for the UQCS Hackathon 2025.]]></summary>
-        <content type="html"><![CDATA[<p><img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/legionnaire/title.webp" alt="Title"></p>
+        <content type="html"><![CDATA[<p><img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/legionnaire/title1.webp" alt="Title"></p>
 <h1>Legionnaire: Caffeine, Code, and Cyber Security, a 48 Hour AI-Powered SIEM Hackathon Project</h1>
 <h2>Acryonyms, Acronyms, Acryonyms</h2>
 <p>A few months ago I found myself sitting at a talk at CrikeyConX in the Brisbane
