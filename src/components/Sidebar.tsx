@@ -60,10 +60,10 @@ export default function Sidebar() {
     <>
       <div
         className="sm:hidden fixed top-0 left-0 w-full bg-black text-white flex items-center
-          justify-between px-8 py-4 z-50"
+          justify-between px-8 py-3 z-50"
       >
         <button
-          className="text-white text-5xl flex items-center justify-center"
+          className="text-white text-4xl flex items-center justify-center"
           onClick={toggleSidebar}
           aria-label={isSidebarOpen ? 'Close menu' : 'Open menu'}
         >
@@ -71,7 +71,7 @@ export default function Sidebar() {
         </button>
 
         <Link href="/">
-          <h2 className="sm:text-3xl text-5xl font-bold leading-none -translate-y-2 sm:translate-y-0">
+          <h2 className="sm:text-3xl text-4xl font-bold leading-none -translate-y-2 sm:translate-y-0">
             {pathname.includes('/staging/') ? 'staging' : 'smp46'}
           </h2>
         </Link>
