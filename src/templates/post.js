@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Head from 'next/head';
 import { FaGithub } from 'react-icons/fa';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
 
 export default function Post({ children, frontMatter }) {
   const {
@@ -16,6 +18,9 @@ export default function Post({ children, frontMatter }) {
   } = frontMatter;
 
   const [isLoading, setIsLoading] = useState(true);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [slides, setSlides] = useState([]);
 
   const formatDate = (dateString) => {
     if (!dateString) return null;
@@ -28,6 +33,20 @@ export default function Post({ children, frontMatter }) {
 
   const showUpdated = updated && updated !== created;
   const hasAnyDate = created || date || updated;
+
+  const handleImageClick = useCallback((event) => {
+    if (event.target.tagName === 'IMG') {
+      // Lightbox each image in the post except when file name includes 'title'
+      const allImages = Array.from(document.querySelectorAll('.prose img'));
+      const clickedImageIndex = allImages.findIndex(img => img === event.target);
+      if (clickedImageIndex >= 0) {
+        setSlides(allImages.map(img => ({ src: img.src })));
+        setLightboxIndex(clickedImageIndex);
+        setLightboxOpen(true);
+      }
+    }
+  }, []);
+
 
   useEffect(() => {
     const images = document.querySelectorAll('img');
@@ -114,7 +133,11 @@ export default function Post({ children, frontMatter }) {
       <div
         className={` fixed inset-0 bg-white flex items-center justify-center z-29 sm:ml-64
           transition-opacity duration-500
-          ${isLoading ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} `}
+          ${
+            isLoading
+              ? 'opacity-100 pointer-events-auto'
+              : 'opacity-0 pointer-events-none'
+          } `}
       >
         <div className="animate-spin rounded-full h-16 w-16 border-4 border-black border-t-transparent"></div>
       </div>
@@ -157,7 +180,10 @@ export default function Post({ children, frontMatter }) {
         </a>
       </div>
 
-      <div className="flex items-center justify-center min-h-screen mb-5 overflow-hidden">
+      <div
+        className="flex items-center justify-center min-h-screen mb-5 overflow-hidden"
+        onClick={handleImageClick}
+      >
         <div
           className="prose prose-headings:break-words prose-headings:hyphens-auto prose-lg
             prose-img:mx-auto prose-headings:mt-8 prose-headings:font-semibold
@@ -179,6 +205,13 @@ export default function Post({ children, frontMatter }) {
           <FaGithub className="text-3xl" />
         </a>
       </div>
+
+      <Lightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        slides={slides}
+        index={lightboxIndex}
+      />
     </div>
   );
 }

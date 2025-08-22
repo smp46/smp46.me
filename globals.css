@@ -59,3 +59,18 @@
     animation: octocat-wave 560ms ease-in-out;
   }
 }
+
+img {
+  user-drag: none;
+  -webkit-user-drag: none;
+
+}
+
+.prose img {
+  max-height: 50vh;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  user-drag: none;
+  -webkit-user-drag: none;
+}

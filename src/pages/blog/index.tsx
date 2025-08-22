@@ -43,7 +43,7 @@ export default function FeaturedBlogLayout({ posts }: Props) {
         id="featured-layout"
         className="flex items-center justify-center md:min-h-screen"
       >
-        <div className="min-h-screen py-10 px-4 w-full max-w-6xl mx-auto">
+        <div className="min-h-screen py-5 sm:py-10 px-4 w-full max-w-6xl mx-auto">
           <Head>
             <title> Projects and Other Things - smp46</title>
             <meta
@@ -70,7 +70,7 @@ export default function FeaturedBlogLayout({ posts }: Props) {
               <Link href={featuredPost.path} passHref>
                 <div className="group grid grid-cols-1 md:grid-cols-2 gap-8 items-center cursor-pointer">
                   {featuredPost.heroImage && (
-                    <div className="relative h-80 rounded-lg overflow-hidden shadow-lg bg-white">
+                    <div className="relative sm:h-80 h-40 rounded-lg overflow-hidden shadow-lg bg-white">
                       <Image
                         src={featuredPost.heroImage}
                         alt={`Hero image for ${featuredPost.title}`}
@@ -95,7 +95,7 @@ export default function FeaturedBlogLayout({ posts }: Props) {
                     <h2 className="text-4xl font-extrabold text-black mb-4">
                       {featuredPost.title}
                     </h2>
-                    <p className="text-lg text-gray-700">
+                    <p className="sm:text-lg text-md text-gray-700">
                       {featuredPost.description}
                     </p>
                   </div>
