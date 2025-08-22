@@ -4,7 +4,7 @@
         <title>smp46</title>
         <link>https://smp46.me</link>
         <description>Projects, attempts and other things</description>
-        <lastBuildDate>Thu, 21 Aug 2025 07:03:34 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 22 Aug 2025 04:34:55 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Next.js using Feed for Node.js</generator>
         <language>en</language>
@@ -14,7 +14,7 @@
             <link>https://smp46.me/blog/Legionnaire</link>
             <guid>https://smp46.me/blog/Legionnaire</guid>
             <pubDate>Thu, 21 Aug 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[Legionnaire is an AI-powered SIEM (Security Information and Event Management) platform designed for comprehensive, automated threat detection and response. It operates as a modular, GUI-less client running in the background, consisting of a client, a control-server and web dashboard. Built by a team of 6 undergrads in <48 Hours for the UQCS Hackathon 2025.]]></description>
+            <description><![CDATA[Legionnaire is an AI-powered SIEM (Security Information and Event Management) platform designed for comprehensive, automated threat detection and response. It operates as a modular and unobtrusive security solution, consisting of a client, a control-server and web dashboard. Built by a team of 6 undergrads in <48 Hours for the UQCS Hackathon 2025.]]></description>
             <content:encoded><![CDATA[<p><img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/legionnaire/title1.webp" alt="Title"></p>
 <h1>Legionnaire: Caffeine, Code, and Cyber Security, a 48 Hour AI-Powered SIEM Hackathon Project</h1>
 <h2>Acryonyms, Acronyms, Acryonyms</h2>
@@ -49,7 +49,7 @@ utilise AI. Easy right?</p>
 knew the biggest hurdle was ensuring everyone had work to do. We had to prevent
 (as much as possible) devs waiting on other devs to get work done. As a result,
 a modular approach was decided upon.</p>
-<p>Given the goal is to make an enterprise-level product, the Client will be a
+<p>Given the goal is to make an enterprise-level product, the Client has to be a
 background-only service that provides zero feedback or notifications to the
 user. It is comprised of four modules:</p>
 <ul>
@@ -63,7 +63,7 @@ match known malware (via the MalwareBazaar API).</li>
 against any potential threats. Actions include: Adding and removing firewall
 rules, killing processes and removing files.</li>
 </ul>
-<p>The Control-Server is then responsible for:</p>
+<p>The Control Server is then responsible for:</p>
 <ul>
 <li>Running the Network Flow analysis algorithm and flagging any suspicious
 activity.</li>
@@ -71,7 +71,7 @@ activity.</li>
 <li>Proxy-ing any actions from the Web Dashboard to the appropriate Client's
 Action Module.</li>
 </ul>
-<p>The Web Dashboard connects to the Control-Server via a REST-ful API to:</p>
+<p>The Web Dashboard connects to the Control Server via a REST-ful API to:</p>
 <ul>
 <li>Provide a per module logs overview</li>
 <li>Provide statistics and graphing</li>
@@ -94,9 +94,9 @@ binary classification model that allowed us to accurately analyse and flag
 traffic.</li>
 <li><a href="https://github.com/pallets/flask">flask</a>, the gold-standard for implementing
 web applications in Python. In our case it was used for REST-ful API
-communications between Client, Control-Server and Web Dashboard.</li>
+communications between Client, Control Server and Web Dashboard.</li>
 </ul>
-<p>The Web-Dashboard was written using React + Vite + TailwindCSS, to provide an
+<p>The Web Dashboard was written using React + Vite + TailwindCSS, to provide an
 easy to develop and run front-end for the users. Firebase is used for login
 authentication and was intended to be used for backing up logs, however that has
 not yet been implemented.</p>
@@ -136,11 +136,11 @@ regularisation, also implementing methods to deal with class imbalances such
 as weight scaling. This classifier predicts the labels of data containing 79
 columns of network traffic to either Benign (0) or Attack (1).</p>
 </blockquote>
-<p>What can I reveal? Is that it actually worked surprisingly well. Resource usage
-on the Control-Server was negligent, and that's even when the model is running
+<p>What can I reveal? It's that it actually worked surprisingly well. Resource usage
+on the Control Server was negligent, and that's even when the model is running
 nearly constantly analysing multiple clients network flows. The main reasons I
 found the model impressive is the ability to identify malicious activities of
-network connections, without intercepting, packet inspection or decryption.
+network connections, without interception, packet inspection or decryption.
 Monitoring is completely passive and transparent, yet still effective.</p>
 <h2>The Result: Visuals</h2>
 <p>Here's a short demo of the Web-Dashboard in action:
