@@ -7,7 +7,7 @@ type: personal
 description: >-
   Legionnaire is an AI-powered SIEM (Security Information and Event Management)
   platform designed for comprehensive, automated threat detection and response.
-  It operates as a modular, GUI-less client running in the background,
+  It operates as a modular and unobtrusive security solution,
   consisting of a client, a control-server and web dashboard. Built by a team of
   6 undergrads in <48 Hours for the UQCS Hackathon 2025.
 keywords:
@@ -16,6 +16,7 @@ github: 'https://github.com/LegionnaireDevs/legionnaire'
 featured: true
 heroImage: >-
   https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/legionnaire/icon.webp
+heroImageBlurDataUrl: data:image/webp;base64,UklGRmYCAABXRUJQVlA4WAoAAAAgAAAAKAAAKAAASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADZWUDggeAAAADAFAJ0BKikAKQA+7WKuTimqOCIuOAszAB2JYwCw7BPGkE60MC/2D2fyyR88FRewdFAwAP7t5XCBRJMdvBd0n6nx84F37xwAJqqykBQhYxWX7fIayj2OdPI8XgPhvMP9K6LKfrcYsatbP6fXtOQXjnIkOrIJ46xgAA==
 date: '2025-08-21'
 created: '2025-08-21'
 updated: '2025-08-21'
@@ -64,7 +65,7 @@ knew the biggest hurdle was ensuring everyone had work to do. We had to prevent
 (as much as possible) devs waiting on other devs to get work done. As a result,
 a modular approach was decided upon.
 
-Given the goal is to make an enterprise-level product, the Client will be a
+Given the goal is to make an enterprise-level product, the Client has to be a
 background-only service that provides zero feedback or notifications to the
 user. It is comprised of four modules:
 
@@ -78,7 +79,7 @@ user. It is comprised of four modules:
   against any potential threats. Actions include: Adding and removing firewall
   rules, killing processes and removing files.
 
-The Control-Server is then responsible for:
+The Control Server is then responsible for:
 
 - Running the Network Flow analysis algorithm and flagging any suspicious
   activity.
@@ -86,7 +87,7 @@ The Control-Server is then responsible for:
 - Proxy-ing any actions from the Web Dashboard to the appropriate Client's
   Action Module.
 
-The Web Dashboard connects to the Control-Server via a REST-ful API to:
+The Web Dashboard connects to the Control Server via a REST-ful API to:
 
 - Provide a per module logs overview
 - Provide statistics and graphing
@@ -112,9 +113,9 @@ The most important of the libraries we used are:
   traffic.
 - [flask](https://github.com/pallets/flask), the gold-standard for implementing
   web applications in Python. In our case it was used for REST-ful API
-  communications between Client, Control-Server and Web Dashboard.
+  communications between Client, Control Server and Web Dashboard.
 
-The Web-Dashboard was written using React + Vite + TailwindCSS, to provide an
+The Web Dashboard was written using React + Vite + TailwindCSS, to provide an
 easy to develop and run front-end for the users. Firebase is used for login
 authentication and was intended to be used for backing up logs, however that has
 not yet been implemented.
@@ -162,11 +163,11 @@ here:
 > as weight scaling. This classifier predicts the labels of data containing 79
 > columns of network traffic to either Benign (0) or Attack (1).
 
-What can I reveal? Is that it actually worked surprisingly well. Resource usage
-on the Control-Server was negligent, and that's even when the model is running
+What can I reveal? It's that it actually worked surprisingly well. Resource usage
+on the Control Server was negligent, and that's even when the model is running
 nearly constantly analysing multiple clients network flows. The main reasons I
 found the model impressive is the ability to identify malicious activities of
-network connections, without intercepting, packet inspection or decryption.
+network connections, without interception, packet inspection or decryption.
 Monitoring is completely passive and transparent, yet still effective.
 
 ## The Result: Visuals
