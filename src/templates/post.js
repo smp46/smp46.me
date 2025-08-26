@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import Head from 'next/head';
 import { FaGithub } from 'react-icons/fa';
 import Lightbox from 'yet-another-react-lightbox';
@@ -21,10 +21,11 @@ export default function Post({ children, frontMatter }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [slides, setSlides] = useState([]);
+  const videoRefs = useRef([]);
 
   const formatDate = (dateString) => {
     if (!dateString) return null;
-    return new Date(dateString).toLocaleDateString('en-US', {
+    return new Date(dateString).toLocaleString('en-US', {
       year: 'numeric',
       month: 'short',
       day: 'numeric',
@@ -35,43 +36,54 @@ export default function Post({ children, frontMatter }) {
   const hasAnyDate = created || date || updated;
 
   const handleImageClick = useCallback((event) => {
-    if (event.target.tagName === 'IMG') {
-      // Lightbox each image in the post except when file name includes 'title'
-      const allImages = Array.from(document.querySelectorAll('.prose img'));
-      const clickedImageIndex = allImages.findIndex(img => img === event.target);
-      if (clickedImageIndex >= 0) {
-        setSlides(allImages.map(img => ({ src: img.src })));
-        setLightboxIndex(clickedImageIndex);
+    if (event.target.tagName === 'IMG' || event.target.tagName === 'VIDEO') {
+      const allMedia = Array.from(
+        document.querySelectorAll('.prose img, .prose video')
+      );
+      const clickedMediaIndex = allMedia.findIndex(
+        (media) => media === event.target
+      );
+      if (clickedMediaIndex >= 0) {
+        setSlides(
+          allMedia.map((media) => ({
+            src: media.src,
+            type: media.tagName === 'VIDEO' ? 'video' : 'image',
+          }))
+        );
+        setLightboxIndex(clickedMediaIndex);
         setLightboxOpen(true);
       }
     }
   }, []);
 
-
   useEffect(() => {
-    const images = document.querySelectorAll('img');
+    const media = document.querySelectorAll('img, video');
     let loadedCount = 0;
 
-    if (images.length === 0) {
+    if (media.length === 0) {
       setIsLoading(false);
       return;
     }
 
-    images.forEach((img) => {
-      if (img.complete) {
+    media.forEach((el) => {
+      if (el.tagName === 'IMG' && el.complete) {
         loadedCount++;
-        if (loadedCount === images.length) setIsLoading(false);
+      } else if (el.tagName === 'VIDEO' && el.readyState >= 3) {
+        loadedCount++;
       } else {
-        img.addEventListener('load', () => {
+        const eventName = el.tagName === 'IMG' ? 'load' : 'loadeddata';
+        el.addEventListener(eventName, () => {
           loadedCount++;
-          if (loadedCount === images.length) setIsLoading(false);
+          if (loadedCount === media.length) setIsLoading(false);
         });
-        img.addEventListener('error', () => {
+        el.addEventListener('error', () => {
           loadedCount++;
-          if (loadedCount === images.length) setIsLoading(false);
+          if (loadedCount === media.length) setIsLoading(false);
         });
       }
     });
+
+    if (loadedCount === media.length) setIsLoading(false);
   }, []);
 
   useEffect(() => {
@@ -122,6 +134,41 @@ export default function Post({ children, frontMatter }) {
     return () => clearTimeout(timer);
   }, [hasAnyDate, created, showUpdated, updated, readingTime]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      async (entries) => {
+        for (const entry of entries) {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            video.muted = true; // Explicitly set muted property
+            try {
+              await video.play();
+            } catch (error) {
+              console.error('Error attempting to play video:', error);
+            }
+          } else {
+            video.pause();
+          }
+        }
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+
+    const videos = document.querySelectorAll('.prose video');
+    videoRefs.current = Array.from(videos);
+    videoRefs.current.forEach((video) => observer.observe(video));
+
+    return () => {
+      videoRefs.current.forEach((video) => {
+        if (video) {
+          observer.unobserve(video);
+        }
+      });
+    };
+  }, [children]);
+
   return (
     <div className="min-h-screen relative overflow-hidden">
       <Head>
@@ -132,9 +179,8 @@ export default function Post({ children, frontMatter }) {
 
       <div
         className={` fixed inset-0 bg-white flex items-center justify-center z-29 sm:ml-64
-          transition-opacity duration-500
-          ${
-            isLoading
+          transition-opacity duration-500 ${
+          isLoading
               ? 'opacity-100 pointer-events-auto'
               : 'opacity-0 pointer-events-none'
           } `}
@@ -192,7 +238,21 @@ export default function Post({ children, frontMatter }) {
             prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-2xl prose-h6:text-xl
             dark:prose-headings:text-black text-black overflow-hidden max-w-[100ch]"
         >
-          {children}
+          {React.cloneElement(children, {
+            components: {
+              ...children.props.components,
+              video: ({ ...props }) => (
+                <video
+                  {...props}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-auto"
+                />
+              ),
+            },
+          })}
         </div>
         <a
           href={github}
