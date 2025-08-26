@@ -4,7 +4,7 @@
         <title>smp46</title>
         <link>https://smp46.me</link>
         <description>Projects, attempts and other things</description>
-        <lastBuildDate>Tue, 26 Aug 2025 02:13:24 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 26 Aug 2025 02:23:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Next.js using Feed for Node.js</generator>
         <language>en</language>
@@ -144,7 +144,7 @@ network connections, without interception, packet inspection or decryption.
 Monitoring is completely passive and transparent, yet still effective.</p>
 <h2>The Result: Visuals</h2>
 <p>Here's a short demo of the Web-Dashboard in action:
-<img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/legionnaire/demo_video.gif" alt="Demo Video"></p>
+<video src="https://raw.githubusercontent.com/smp46/smp46.me/refs/heads/main/public/assets/legionnaire/demo.mp4"></video></p>
 <h4>Per Page Module Overview</h4>
 <p>Graphing and General Statistics:
 <img src="https://cdn.statically.io/gh/smp46/smp46.me/main/public/assets/legionnaire/dash_stats.webp" alt="Dashboard Stats"></p>
