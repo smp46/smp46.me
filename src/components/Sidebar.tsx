@@ -52,7 +52,6 @@ export default function Sidebar() {
   const navLinks = [
     { href: '/', label: 'Welcome' },
     { href: '/blog/', label: 'Blog' },
-    { href: '/experience/', label: 'Experience' },
     { href: '/whoami/', label: 'whoami' },
   ];
 
