@@ -15,7 +15,7 @@ export default function Whoami() {
           </title>
           <meta
             name="description"
-            content="Learn more about smp46 – an aspiringu software developer with a passion for building tools, apps, and fun digital experiences. Here's my journey, philosophy, and what drives me."
+            content="Learn more about smp46 – an aspiring software developer with a passion for building tools, apps, and fun digital experiences. Here's my journey, philosophy, and what drives me."
           ></meta>
           <meta
             name="keywords"
@@ -40,15 +40,14 @@ export default function Whoami() {
           <div className="text-center mt-6 lg:mt-0 order-2">
             <h1 className="text-5xl font-bold mb-6">whoami</h1>
             <p className="md:text-3xl text-2xl mb-4">
-              I am excited to complete my Bachelor&#39;s of Computer Science and
-              am keen to enter the field of my major, Cyber Security. I&#39;m an
-              active member of the UQ Cyber Squad, where we are lucky enough to
-              get regular industry talks and workshops. I enjoy participating in
-              CTFs and follow the industry closely.
+              I am entering my final semester as a Computer Science student at the University of Queensland,
+              who is passionate about computers and cyber security. I have extensive
+              experience in the IT industry as a computer technician and salesman,
+              complemented by excellent customer service skills. With further
+              software skills, programming and industry skills through university.
               <br />
               <br />
-              In my free time, you&#39;ll find me working on personal projects
-              or playing video games.
+              In my free time, you&#39;ll find me working on personal projects, playing video games or reading a book.
             </p>
           </div>
         </div>
