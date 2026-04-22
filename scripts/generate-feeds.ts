@@ -76,7 +76,7 @@ async function getAllPosts(): Promise<Post[]> {
 
 async function generateFeeds() {
   const baseURL =
-    'https://cdn.statically.io/gh/smp46/smp46.github.io/nextjs/public';
+    'https://raw.githubusercontent.com/smp46/smp46.github.io/nextjs/public';
   const feedDirectory = 'feeds';
   const author = 'smp46';
   const websiteURL = 'https://smp46.me';

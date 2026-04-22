@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 export default function Feed() {
   useEffect(() => {
     window.location.href =
-      'https://cdn.statically.io/gh/smp46/smp46.github.io/nextjs/public/feeds/feed.xml';
+      'https://raw.githubusercontent.com/smp46/smp46.github.io/nextjs/public/feeds/feed.xml';
   }, []);
 
   return (

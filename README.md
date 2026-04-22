@@ -12,7 +12,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/smp46/smp46.me">
-    <img src="https://cdn.statically.io/gh/smp46/smp46.me/nextjs/public/assets/pp.webp?q=85" alt="Logo" width="200" height="200" style="background-color:white; border-radius:50%">
+    <img src="https://raw.githubusercontent.com/smp46/smp46.me/nextjs/public/assets/pp.webp" alt="Logo" width="200" height="200" style="background-color:white; border-radius:50%">
   </a>
 
 <h3 align="center">Personal Portfolio Website</h3>
