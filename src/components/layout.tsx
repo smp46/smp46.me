@@ -11,7 +11,10 @@ const customScrollbar = {};
 
 export default function RootLayout({ children }: LayoutProps) {
   return (
-    <div className="flex h-screen" style={customScrollbar}>
+    <div
+      className="flex flex-col sm:flex-row min-h-dvh sm:h-screen overflow-x-hidden"
+      style={customScrollbar}
+    >
       <Head>
         <meta httpEquiv="content-language" content="en-us"></meta>
         <meta name="author" content="Samuel Paynter "></meta>
@@ -39,7 +42,7 @@ export default function RootLayout({ children }: LayoutProps) {
       </Head>
       <Sidebar />
 
-      <main className="flex-1 sm:ml-auto mt-16 sm:mt-0 sm:overflow-y-auto px-8 w-screen">
+      <main className="flex-1 w-full min-w-0 sm:ml-auto mt-16 sm:mt-0 sm:overflow-y-auto px-4 sm:px-8">
         {children}
       </main>
     </div>
