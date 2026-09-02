@@ -179,6 +179,30 @@ export default function Sidebar() {
             );
           })}
         </nav>
+
+        <div className="mt-auto pt-6 border-t border-neutral-800">
+          <a
+            href="https://github.com/smp46/pingvin-share-x"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeSidebar}
+            data-umami-event="Clicked Pingvin Share X Link"
+            data-link="external"
+            className="block bg-white text-black p-3 hover:bg-neutral-200 transition-colors
+              duration-200"
+          >
+            <div className="flex items-center justify-between text-xs font-semibold text-neutral-500">
+              <span>Active Project</span>
+              <FaGithub className="text-sm text-neutral-700" />
+            </div>
+            <div className="font-bold text-base mt-1 text-black">
+              Pingvin Share X
+            </div>
+            <p className="text-xs text-neutral-700 mt-1">
+              Open-source self-hosted file sharing
+            </p>
+          </a>
+        </div>
       </div>
 
       {isSidebarOpen && (
