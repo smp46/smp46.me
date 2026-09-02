@@ -6,12 +6,22 @@ import '../prism-theme.css';
 import '../../globals.css';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  const websiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+  const scriptUrl =
+    process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL ||
+    'https://cloud.umami.is/script.js';
+  const domains = process.env.NEXT_PUBLIC_UMAMI_DOMAINS;
+
   return (
     <Layout>
-      <Script
-        src="https://data.smp46.me/getinfo"
-        data-website-id="c19979eb-45c7-48a1-be90-acaf7e819bde"
-      />
+      {websiteId && (
+        <Script
+          strategy="afterInteractive"
+          src={scriptUrl}
+          data-website-id={websiteId}
+          {...(domains ? { 'data-domains': domains } : {})}
+        />
+      )}
       <Component {...pageProps} />
     </Layout>
   );

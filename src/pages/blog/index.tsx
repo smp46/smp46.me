@@ -67,7 +67,13 @@ export default function FeaturedBlogLayout({ posts }: Props) {
 
           <main>
             <section className="mb-16">
-              <Link href={featuredPost.path} passHref>
+              <Link
+                href={featuredPost.path}
+                passHref
+                data-umami-event="Featured Article Clicked"
+                data-umami-event-title={featuredPost.title}
+                data-umami-event-slug={featuredPost.path}
+              >
                 <div className="group grid grid-cols-1 md:grid-cols-2 gap-8 items-center cursor-pointer">
                   {featuredPost.heroImage && (
                     <div className="relative sm:h-80 h-40 rounded-lg overflow-hidden shadow-lg bg-white">
@@ -109,7 +115,14 @@ export default function FeaturedBlogLayout({ posts }: Props) {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 grid-rows-auto">
                 {otherPosts.map((post) => (
-                  <Link key={post.path} href={post.path} passHref>
+                  <Link
+                    key={post.path}
+                    href={post.path}
+                    passHref
+                    data-umami-event="Article Card Clicked"
+                    data-umami-event-title={post.title}
+                    data-umami-event-slug={post.path}
+                  >
                     <div
                       className="group cursor-pointer bg-white p-6 rounded-lg shadow-md hover:shadow-xl
                         transition-shadow flex flex-col h-full"
@@ -138,6 +151,8 @@ export default function FeaturedBlogLayout({ posts }: Props) {
                   className="group flex items-center gap-2 px-4 py-2 rounded-md bg-orange-50 text-orange-600
                     hover:bg-orange-100 transition-all duration-200 border border-orange-200"
                   aria-label="RSS Feed"
+                  data-umami-event="Feed Subscription Clicked"
+                  data-umami-event-format="RSS"
                 >
                   <FaRss className="text-lg group-hover:scale-110 transition-transform duration-200" />
                   <span className="font-medium">RSS</span>
@@ -147,6 +162,8 @@ export default function FeaturedBlogLayout({ posts }: Props) {
                   className="group flex items-center gap-2 px-4 py-2 rounded-md bg-purple-50 text-purple-600
                     hover:bg-purple-100 transition-all duration-200 border border-purple-200"
                   aria-label="Atom Feed"
+                  data-umami-event="Feed Subscription Clicked"
+                  data-umami-event-format="Atom"
                 >
                   <FaAtom className="text-lg group-hover:scale-110 transition-transform duration-200" />
                   <span className="font-medium">Atom</span>
@@ -156,6 +173,8 @@ export default function FeaturedBlogLayout({ posts }: Props) {
                   className="group flex items-center gap-2 px-4 py-2 rounded-md bg-blue-50 text-blue-600
                     hover:bg-blue-100 transition-all duration-200 border border-blue-200"
                   aria-label="JSON Feed"
+                  data-umami-event="Feed Subscription Clicked"
+                  data-umami-event-format="JSON"
                 >
                   <VscJson className="text-lg group-hover:scale-110 transition-transform duration-200" />
                   <span className="font-medium">JSON</span>

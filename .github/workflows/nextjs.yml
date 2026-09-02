@@ -67,6 +67,9 @@ jobs:
         env:
           BASE_PATH:
             ${{ github.ref == 'refs/heads/staging' && '/staging' || '' }}
+          NEXT_PUBLIC_UMAMI_WEBSITE_ID: ${{ vars.NEXT_PUBLIC_UMAMI_WEBSITE_ID || secrets.NEXT_PUBLIC_UMAMI_WEBSITE_ID }}
+          NEXT_PUBLIC_UMAMI_SCRIPT_URL: ${{ vars.NEXT_PUBLIC_UMAMI_SCRIPT_URL || secrets.NEXT_PUBLIC_UMAMI_SCRIPT_URL }}
+          NEXT_PUBLIC_UMAMI_DOMAINS: ${{ vars.NEXT_PUBLIC_UMAMI_DOMAINS || secrets.NEXT_PUBLIC_UMAMI_DOMAINS }}
         run: |
           echo "Using BASE_PATH: $BASE_PATH"
           ${{ steps.detect-package-manager.outputs.manager }} run build
