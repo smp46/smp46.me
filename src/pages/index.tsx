@@ -181,38 +181,6 @@ export default function Welcome() {
               Space
             </text>
           </svg>
-
-          <span className="mr-2">or</span>
-
-          <div
-            className="mx-1 w-8 h-8 border-[0.05vw] border-gray-500 rounded-md flex items-center
-              justify-center"
-          >
-            <BsCommand className="text-gray-500 text-md" />
-          </div>
-          <span className="ml-1">+</span>
-
-          <svg className="w-20 h-8" viewBox="0 0 200 100">
-            <rect
-              x="5"
-              y="5"
-              width="190"
-              height="90"
-              rx="10"
-              ry="10"
-              className="fill-none stroke-gray-500 stroke-2"
-            />
-            <text
-              x="100"
-              y="60"
-              fill="currentColor"
-              className="text-3xl"
-              textAnchor="middle"
-            >
-              Space
-            </text>
-          </svg>
-
           <span className="ml-1">
             to launch the search bar anywhere on this website.
           </span>
