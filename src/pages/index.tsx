@@ -73,16 +73,15 @@ export default function Welcome() {
         <div className="flex flex-col items-center text-center sm:px-8 py-10">
           <Head>
             <title>
-              Hi, I&#39;m smp46 - Aspiring Software Developer & Builder of
-              Things
+              Hi, I&#39;m smp46 - Software Developer & Builder of Things
             </title>
             <meta
               name="description"
-              content="I&#39;m a passionate undergrad studying Computer Science at the University of Queensland. This website highlights some of my achievements and skills as an aspiring software developer."
+              content="I&#39;m a Computer Science graduate from the University of Queensland. This website highlights some of my achievements and skills as a software developer."
             ></meta>
             <meta
               name="keywords"
-              content="smp46, software engineer, developer portfolio, web developer, TypeScript, Next.js, personal site, student"
+              content="smp46, software engineer, developer portfolio, web developer, TypeScript, Next.js, personal site, graduate"
             ></meta>
           </Head>
           <div className="mb-4">
@@ -126,9 +125,9 @@ export default function Welcome() {
           <h2 className="text-4xl sm:text-5xl text-gray-600">(smp46)</h2>
 
           <p className="sm:mt-4 mt-12 md:text-3xl text-2xl sm:p-4">
-            I&#39;m a passionate undergrad studying Computer Science at the
-            University of Queensland. This website highlights some of my
-            achievements and skills as an aspiring software developer.
+            I&#39;m a Computer Science graduate from the University of
+            Queensland. This website highlights some of my achievements and
+            skills as a software developer.
           </p>
         </div>
       </div>

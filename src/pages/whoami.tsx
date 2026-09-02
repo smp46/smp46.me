@@ -40,12 +40,9 @@ export default function Whoami() {
           <div className="text-center mt-6 lg:mt-0 order-2">
             <h1 className="text-5xl font-bold mb-6">whoami</h1>
             <p className="md:text-3xl text-2xl mb-4">
-              I am entering my final semester as a Computer Science student at
-              the University of Queensland, who is passionate about computers
-              and cyber security. I have extensive experience in the IT industry
-              as a computer technician and salesman, complemented by excellent
-              customer service skills. With further software skills, programming
-              and industry skills through university.
+              I have a bachelor&#39;s of Computer Science from the University of Queensland, Australia, inn addition to extensive experience in the IT industry 
+              as a computer techician and salesman. With further software, programming and industry skills through university and personal endeavours.
+              Since finishing classes I have focused on honing my skills via a real-world open-source project with a growing using base: Pingvin Share X.
               <br />
               <br />
               In my free time, you&#39;ll find me working on personal projects,
