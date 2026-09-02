@@ -10,16 +10,14 @@ export default function Whoami() {
     >
       <div className="container mx-auto px-4">
         <Head>
-          <title>
-            whoami - Aspiring Software Developer, Student & Tinkerer – smp46
-          </title>
+          <title>whoami - Software Developer – smp46</title>
           <meta
             name="description"
-            content="Learn more about smp46 – an aspiring software developer with a passion for building tools, apps, and fun digital experiences. Here's my journey, philosophy, and what drives me."
+            content="Computer Science graduate from the University of Queensland with experience in IT systems, software development, and open-source projects."
           ></meta>
           <meta
             name="keywords"
-            content="smp46, whoami, about smp46, software engineer bio, developer story, personal site, web developer, creative engineer"
+            content="smp46, whoami, Samuel Paynter, software engineer, developer, Computer Science graduate, IT technician"
           ></meta>
         </Head>
 
@@ -40,9 +38,13 @@ export default function Whoami() {
           <div className="text-center mt-6 lg:mt-0 order-2">
             <h1 className="text-5xl font-bold mb-6">whoami</h1>
             <p className="md:text-3xl text-2xl mb-4">
-              I have a bachelor&#39;s of Computer Science from the University of Queensland, Australia, inn addition to extensive experience in the IT industry 
-              as a computer techician and salesman. With further software, programming and industry skills through university and personal endeavours.
-              Since finishing classes I have focused on honing my skills via a real-world open-source project with a growing using base: Pingvin Share X.
+              I have a bachelor&#39;s of Computer Science from the University of
+              Queensland, Australia, in addition to extensive experience in the
+              IT industry as a computer techician and salesman. With further
+              software, programming and industry skills through university and
+              personal endeavours. Since finishing classes I have focused on
+              honing my skills via a real world open-source project with a
+              growing using base: Pingvin Share X.
               <br />
               <br />
               In my free time, you&#39;ll find me working on personal projects,

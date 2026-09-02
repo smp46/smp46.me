@@ -45,14 +45,14 @@ export default function FeaturedBlogLayout({ posts }: Props) {
       >
         <div className="min-h-screen py-5 sm:py-10 px-4 w-full max-w-6xl mx-auto">
           <Head>
-            <title> Projects and Other Things - smp46</title>
+            <title>Projects and Write-ups – smp46</title>
             <meta
               name="description"
-              content="Explore my personal and undergraduate projects showcasing my journey and skills."
+              content="Projects, technical write-ups, and open-source software built by smp46."
             ></meta>
             <meta
               name="keywords"
-              content="Portfolio, Developer, Projects, Write ups, articles, programming"
+              content="smp46, software projects, developer write-ups, programming, blog, open source, Pingvin Share X"
             ></meta>
           </Head>
 
