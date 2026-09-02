@@ -43,10 +43,6 @@ export default function Search({ onResultClick }: SearchProps) {
   const router = useRouter();
 
   useEffect(() => {
-    setSelectedIndex(results.length > 0 ? 0 : -1);
-  }, [results]);
-
-  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!results.length) {
         return;
@@ -171,26 +167,19 @@ export default function Search({ onResultClick }: SearchProps) {
     setQuery(newQuery);
 
     if (!newQuery.trim() || !window.pagefind) {
-      <input
-        type="text"
-        placeholder="Search..."
-        value={query}
-        onChange={handleSearch}
-        className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none
-          focus:ring-2 focus:ring-black/10 transition-all duration-200 shadow-sm"
-        aria-label="Search"
-        autoFocus
-      />;
       setResults([]);
+      setSelectedIndex(-1);
       return;
     }
 
     try {
       const search = await window.pagefind.search(newQuery);
       setResults(search.results);
+      setSelectedIndex(search.results.length > 0 ? 0 : -1);
     } catch (error) {
       console.error('Search error:', error);
       setResults([]);
+      setSelectedIndex(-1);
     }
   }
 

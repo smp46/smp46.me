@@ -40,14 +40,16 @@ export default function Whoami() {
           <div className="text-center mt-6 lg:mt-0 order-2">
             <h1 className="text-5xl font-bold mb-6">whoami</h1>
             <p className="md:text-3xl text-2xl mb-4">
-              I am entering my final semester as a Computer Science student at the University of Queensland,
-              who is passionate about computers and cyber security. I have extensive
-              experience in the IT industry as a computer technician and salesman,
-              complemented by excellent customer service skills. With further
-              software skills, programming and industry skills through university.
+              I am entering my final semester as a Computer Science student at
+              the University of Queensland, who is passionate about computers
+              and cyber security. I have extensive experience in the IT industry
+              as a computer technician and salesman, complemented by excellent
+              customer service skills. With further software skills, programming
+              and industry skills through university.
               <br />
               <br />
-              In my free time, you&#39;ll find me working on personal projects, playing video games or reading a book.
+              In my free time, you&#39;ll find me working on personal projects,
+              playing video games or reading a book.
             </p>
           </div>
         </div>

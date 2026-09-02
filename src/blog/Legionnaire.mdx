@@ -7,13 +7,13 @@ type: personal
 description: >-
   Legionnaire is an AI-powered SIEM (Security Information and Event Management)
   platform designed for comprehensive, automated threat detection and response.
-  It operates as a modular and unobtrusive security solution,
-  consisting of a client, a control-server and web dashboard. Built by a team of
-  6 undergrads in <48 Hours for the UQCS Hackathon 2025.
+  It operates as a modular and unobtrusive security solution, consisting of a
+  client, a control-server and web dashboard. Built by a team of 6 undergrads in
+  <48 Hours for the UQCS Hackathon 2025.
 keywords:
   'AI SIEM, XGBoost, Hackathon, Cyber Security, UQCS, Legionnaire, Python, React'
 github: 'https://github.com/LegionnaireDevs/legionnaire'
-featured: false 
+featured: false
 heroImage: >-
   https://raw.githubusercontent.com/smp46/smp46.me/main/public/assets/legionnaire/icon.webp
 heroImageBlurDataUrl: data:image/webp;base64,UklGRmYCAABXRUJQVlA4WAoAAAAgAAAAKAAAKAAASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADZWUDggeAAAADAFAJ0BKikAKQA+7WKuTimqOCIuOAszAB2JYwCw7BPGkE60MC/2D2fyyR88FRewdFAwAP7t5XCBRJMdvBd0n6nx84F37xwAJqqykBQhYxWX7fIayj2OdPI8XgPhvMP9K6LKfrcYsatbP6fXtOQXjnIkOrIJ46xgAA==
@@ -163,16 +163,18 @@ here:
 > as weight scaling. This classifier predicts the labels of data containing 79
 > columns of network traffic to either Benign (0) or Attack (1).
 
-What can I reveal? It's that it actually worked surprisingly well. Resource usage
-on the Control Server was negligent, and that's even when the model is running
-nearly constantly analysing multiple clients network flows. The main reasons I
-found the model impressive is the ability to identify malicious activities of
-network connections, without interception, packet inspection or decryption.
-Monitoring is completely passive and transparent, yet still effective.
+What can I reveal? It's that it actually worked surprisingly well. Resource
+usage on the Control Server was negligent, and that's even when the model is
+running nearly constantly analysing multiple clients network flows. The main
+reasons I found the model impressive is the ability to identify malicious
+activities of network connections, without interception, packet inspection or
+decryption. Monitoring is completely passive and transparent, yet still
+effective.
 
 ## The Result: Visuals
 
 Here's a short demo of the Web-Dashboard in action:
+
 <video src="https://raw.githubusercontent.com/smp46/smp46.me/refs/heads/main/public/assets/legionnaire/demo.mp4"></video>
 
 #### Per Page Module Overview

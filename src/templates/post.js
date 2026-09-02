@@ -61,15 +61,21 @@ export default function Post({ children, frontMatter }) {
     let loadedCount = 0;
 
     if (media.length === 0) {
-      setIsLoading(false);
+      setTimeout(() => setIsLoading(false), 0);
       return;
     }
 
     media.forEach((el) => {
       if (el.tagName === 'IMG' && el.complete) {
         loadedCount++;
+        if (loadedCount === media.length) {
+          setTimeout(() => setIsLoading(false), 0);
+        }
       } else if (el.tagName === 'VIDEO' && el.readyState >= 3) {
         loadedCount++;
+        if (loadedCount === media.length) {
+          setTimeout(() => setIsLoading(false), 0);
+        }
       } else {
         const eventName = el.tagName === 'IMG' ? 'load' : 'loadeddata';
         el.addEventListener(eventName, () => {
@@ -83,7 +89,9 @@ export default function Post({ children, frontMatter }) {
       }
     });
 
-    if (loadedCount === media.length) setIsLoading(false);
+    if (loadedCount === media.length) {
+      setTimeout(() => setIsLoading(false), 0);
+    }
   }, []);
 
   useEffect(() => {

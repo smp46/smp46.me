@@ -15,14 +15,16 @@ export default function Welcome() {
     let loadedCount = 0;
 
     if (images.length === 0) {
-      setIsLoading(false);
+      setTimeout(() => setIsLoading(false), 0);
       return;
     }
 
     images.forEach((img) => {
       if (img.complete) {
         loadedCount++;
-        if (loadedCount === images.length) setIsLoading(false);
+        if (loadedCount === images.length) {
+          setTimeout(() => setIsLoading(false), 0);
+        }
       } else {
         img.addEventListener('load', () => {
           loadedCount++;
