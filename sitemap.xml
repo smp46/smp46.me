@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://smp46.me/</loc><lastmod>2026-04-22T19:20:13.568Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://smp46.me/blog/</loc><lastmod>2026-04-22T19:20:13.569Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://smp46.me/feed/</loc><lastmod>2026-04-22T19:20:13.569Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://smp46.me/whoami/</loc><lastmod>2026-04-22T19:20:13.569Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://smp46.me/blog/CyberBattles/</loc><lastmod>2026-04-22T19:20:13.569Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://smp46.me/blog/FileFerry/</loc><lastmod>2026-04-22T19:20:13.569Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://smp46.me/blog/Legionnaire/</loc><lastmod>2026-04-22T19:20:13.569Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://smp46.me/blog/PandorasBox/</loc><lastmod>2026-04-22T19:20:13.569Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://smp46.me/blog/SmartGarage/</loc><lastmod>2026-04-22T19:20:13.569Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://smp46.me/</loc><lastmod>2026-09-02T13:17:47.672Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://smp46.me/blog/</loc><lastmod>2026-09-02T13:17:47.672Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://smp46.me/feed/</loc><lastmod>2026-09-02T13:17:47.672Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://smp46.me/whoami/</loc><lastmod>2026-09-02T13:17:47.672Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://smp46.me/blog/CyberBattles/</loc><lastmod>2026-09-02T13:17:47.672Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://smp46.me/blog/FileFerry/</loc><lastmod>2026-09-02T13:17:47.672Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://smp46.me/blog/Legionnaire/</loc><lastmod>2026-09-02T13:17:47.672Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://smp46.me/blog/PandorasBox/</loc><lastmod>2026-09-02T13:17:47.672Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://smp46.me/blog/SmartGarage/</loc><lastmod>2026-09-02T13:17:47.672Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
